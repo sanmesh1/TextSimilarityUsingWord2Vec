@@ -1,53 +1,19 @@
-# Document Similarity using Word2Vec
+# Google Colab implementation of item similarity using text mining
 
-Calculate the similarity distance between documents using pre-trained word2vec model.
+Implementation of finding similar items to a target item based on word embedding techniques on the item description. Application of finding similar items is strengthening forecasting for a target item by using data from related items.
 
 ### Usage
 
-- Load a pre-trained word2vec model. _Note_: You can use [Google's pre-trained word2vec model](https://bit.ly/w2vgdrive), if you don't have one.
-    
-     ```python
-    from gensim.models.keyedvectors import KeyedVectors
-    model_path = './data/GoogleNews-vectors-negative300.bin'
-    w2v_model = KeyedVectors.load_word2vec_format(model_path, binary=True)
-     ```
+The main jupyter notebook that hosts the code is word2vecTest.ipynb . 
 
-- Once the model is loaded, it can be passed to `DocSim` class to calculate document similarities.
- 
-    ```python
-    from DocSim import DocSim
-    ds = DocSim(w2v_model)
-    ```
+To clone the repo into google drive, in order to open the word2vecTest.ipynb in colab, follow the instructions in the google colab link here: https://drive.google.com/file/d/1i3WmqEx5-O9DTBCxzkPGvE3412cRznCm/view?usp=sharing .
 
-- Calculate the similarity score between a source document & a list of target documents.
+Once the repo is cloned into google drive, you can open word2vecTest.ipynb and follow the instructions in the colab to run it.
 
-    ```python
-  source_doc = 'how to delete an invoice'
-  target_docs = ['delete a invoice', 'how do i remove an invoice', 'purge an invoice']
-
-  # This will return 3 target docs with similarity score
-  sim_scores = ds.calculate_similarity(source_doc, target_docs)
-
-  print(sim_scores)
-  ```
-- Output is as follows:
-  ```python
-    [ {'score': 0.99999994, 'doc': 'delete a invoice'}, 
-    {'score': 0.79869318, 'doc': 'how do i remove an invoice'}, 
-    {'score': 0.71488398, 'doc': 'purge an invoice'} ]
-    ```
-
-- _Note_: You can optionally pass a `threshold` argument to the  `calculate_similarity()` method to return only the target documents with similarity score above the threshold.
-
-    ```python
-    sim_scores = ds.calculate_similarity(source_doc, target_docs, threshold=0.7)
-    ```
 
 
 ### Requirements
-- Python 3 only
-- **_gensim_** : to load the word2vec model
-- **_numpy_**  : to calculate similarity scores
+All requirements are setup in google colab automatically
 
 ### License
 [The MIT License](./LICENSE)# TextSimilarityUsingWord2Vec
