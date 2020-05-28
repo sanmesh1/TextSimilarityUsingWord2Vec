@@ -6,3 +6,5 @@ __pycache__/
 
 data/GoogleNews-vectors-negative300.bin
 data/GoogleNews-vectors-negative300.bin.gz
+data/wiki.en/
+data/wiki.en.zip
